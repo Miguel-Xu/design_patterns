@@ -1,23 +1,21 @@
 package com.edward.iterator;
 
-public class BookShelf implements Aggregation<Book>{
-    private Book[] books;
-    private int length;
+import java.util.ArrayList;
+import java.util.List;
 
-    public BookShelf(int length) {
-        this.books = new Book[length];
-    }
+public class BookShelf implements Aggregation<Book>{
+    private List<Book> books = new ArrayList<>();
 
     public Book getBookAt(int index){
-        return books[index];
+        return books.get(index);
     }
 
     public void appendixBook(Book book){
-        books[length++] = book;
+        books.add(book);
     }
 
     public int getLength(){
-        return this.length;
+        return books.size();
     }
 
     @Override
